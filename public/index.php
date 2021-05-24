@@ -69,25 +69,8 @@ $uas = [
 ];
 
 $ua = $uas[rand(0,16)];
-$query = "Créer son site internet";
-
-$search =  [
-    "location"  => [
-        "g"             =>  "1005805",
-        "short_name"    =>  "Anglet",
-        "long_name"     =>  "Anglet,Nouvelle-Aquitaine,France",
-        "p"             =>  "9069522",
-        "land"          =>  "FR",
-        "type"          =>  "City",
-        "key"           =>  null,
-    ],
-    "se"                => "google.fr",
-    "lang"              => "fr",
-    "ua"                => $ua,
-    "query"             => $query,
-    "request"           => null,
-];
-
+$query = "Créer son site internet"; // the search query goes here
+ 
 $bordeaux = [
     "location"  => [
         "g"             =>  "1005811",
@@ -140,7 +123,7 @@ $serpette->makeUrl();
 $serpette->gSearch();
 //var_dump($serpette->getSearch());
 $json = json_encode($serpette->getSearch());
-$backup_file = 'backup'.uniqId().'.bck';
+$backup_file = 'backup'.uniqId().'.bck'; //the parent directory need to be writable 0644 to 07xx ?
 $fh = fopen($backup_file, "w+");
 fwrite($fh, $json);
 fclose($fh);

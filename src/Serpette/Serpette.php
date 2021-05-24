@@ -31,16 +31,12 @@ class Serpette{
         $this->search->location->key            = self::KEY_PATTERN[strlen($this->search->location->long_name)];
         $this->search->location->land           = $search['location']['land'];
         $this->search->location->type           = $search['location']['type'];
+        $this->search->result                   = null;
     } 
 
     public function getSearch()
     {
         return $this->search;
-    }
-
-    public function setSearch($search)
-    {
-        $this->search = $search;
     }
 
     public function makeUrl():?string
